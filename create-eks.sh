@@ -16,7 +16,7 @@ az acr create --resource-group ${nona} --name ${nona//-} --sku Basic --location 
 # Create a managed Kubernetes cluster
 az aks create -y -g ${nona} -n ${nona}  --enable-managed-identity --load-balancer-sku standard --attach-acr ${nona//-} \
     --enable-cluster-autoscaler --min-count 1 --max-count 3 --node-count 1 \
-    --node-vm-size Standard_DS2_v2 --generate-ssh-keys --location "westus"
+    --node-vm-size Standard_DS2_v2 --enable-blob-driver --generate-ssh-keys --location "westus"
 
 # add cluster extensions
 export list=('http_application_routing'
@@ -47,7 +47,7 @@ az aks nodepool add \
     --eviction-policy Delete \
     --spot-max-price -1 \
     --enable-cluster-autoscaler \
-    --min-count 0 \
+    --min-count 1 \
     --max-count 50 \
     --labels cost=low
 
@@ -59,7 +59,7 @@ az aks nodepool add \
     --cluster-name ${nona} \
     --enable-cluster-autoscaler \
     --name armpool \
-    --min-count 0 \
+    --min-count 1 \
     --max-count 50 \
     --node-vm-size Standard_D2ps_v5 \
     --labels cpu=arm
