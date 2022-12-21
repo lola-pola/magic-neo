@@ -20,7 +20,7 @@ resources:
 args: ["--timeout", "3600s", "--cpu", "1"]
 
 autoscaling:
-  enabled: true
+  enabled: false
   minReplicas: 1
   maxReplicas: 100
   targetCPUUtilizationPercentage: 50
