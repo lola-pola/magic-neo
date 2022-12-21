@@ -40,7 +40,7 @@ service:
   type: LoadBalancer
   port: 8125
   externalTrafficPolicy: Local
-  dnsName: elhays-test-for-neo
+  dnsName: lola-pola-cola-123
 
 ingress:
   enabled: false

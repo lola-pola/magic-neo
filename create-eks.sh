@@ -1,6 +1,6 @@
 
 export nona='k8s-magic-neos'
-export subscription='TBD'
+export subscription='564b567a-e4c8-4f24-b820-1ebf14319aac'
 
 # Create a resource group
 az group create --name ${nona} --location "westus"
